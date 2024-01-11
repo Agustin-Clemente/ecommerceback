@@ -1,7 +1,12 @@
-const MODO_PERSISTENCIA = "DB"
+import dotenv from 'dotenv'
+
+dotenv.config()
+
 const PORT = process.env.PORT || 8080
-const STRCXN = "mongodb+srv://aclemente:cb5h1fvCBctwEbTa@ecommerce.pd9prt3.mongodb.net/?retryWrites=true&w=majority"
-const BASE = "ecommerce"
+const MODO_PERSISTENCIA = process.env.MODO_PERSISTENCIA 
+
+const STRCXN = process.env.STRCXN
+const BASE = process.env.BASE
 
 export default{
     MODO_PERSISTENCIA,

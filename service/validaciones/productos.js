@@ -8,10 +8,10 @@ const validar = producto =>{
         marca: Joi.string().required(),
         categoria: Joi.string().required(),
         descripcionCorta: Joi.string().required(),
-        descripcionLarga: Joi.string(),
+        descripcionLarga: Joi.any(),
         foto: Joi.string().required(),
-        edadDesde: Joi.number(),
-        edadHasta: Joi.number(),
+        edadDesde: Joi.any(),
+        edadHasta: Joi.any(),
         envio: Joi.required()
 
     })

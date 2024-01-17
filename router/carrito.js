@@ -13,6 +13,8 @@ start(){
 
 //CRUD
     this.router.get("/", this.controladorCarrito.obtenerCarrito )
+    //this.router.get("/mp/feedback", this.controladorCarrito.feedback ) LO SACO PORQUE LO HAGO EN FRONT
+    this.router.post("/mp/create_preference", this.controladorCarrito.createPreference )
 
     this.router.post("/", this.controladorCarrito.guardarCarrito)
 

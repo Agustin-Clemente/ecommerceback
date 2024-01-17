@@ -12,6 +12,8 @@ const FTP_HOST = process.env.FTP_HOST
 const FTP_USER = process.env.FTP_USER
 const FTP_PASSWORD = process.env.FTP_PASSWORD
 
+const MP_AccessToken = process.env.MP_AccessToken || ""
+
 export default{
     MODO_PERSISTENCIA,
     PORT,
@@ -19,5 +21,6 @@ export default{
     BASE,
     FTP_HOST,
     FTP_PASSWORD,
-    FTP_USER
+    FTP_USER,
+    MP_AccessToken
 }

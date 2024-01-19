@@ -7,23 +7,22 @@ class CnxMongoDB {
     static db = null
     static connection = false
 
-    static conectar = async ()=>{
+    static conectar = async () => {
         try {
             console.log("Conectando a DB...")
-            CnxMongoDB.client= new MongoClient(config.STRCXN)
-            
+            CnxMongoDB.client = new MongoClient(config.STRCXN)
 
-       await CnxMongoDB.client.connect()
-       console.log("DB conectada")
 
-           CnxMongoDB.db= CnxMongoDB.client.db(config.BASE) //es como hacer use en cliente de MongoDB
+            await CnxMongoDB.client.connect()
+            console.log("DB conectada")
+
+            CnxMongoDB.db = CnxMongoDB.client.db(config.BASE) //es como hacer use en cliente de MongoDB
 
             CnxMongoDB.connection = true
 
         } catch (error) {
             console.log(`Error: ${error.message}`)
         }
-       
     }
 }
 

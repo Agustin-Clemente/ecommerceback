@@ -2,53 +2,46 @@ import ServicioProducto from "../service/productos.js"
 
 class Controlador {
 
-    constructor(){
+    constructor() {
         this.servicioProducto = new ServicioProducto()
     }
 
- obtenerProductos = async (req, res)=>{
-    const id = req.params.id
+    obtenerProductos = async (req, res) => {
+        const id = req.params.id
 
-    const productos = await this.servicioProducto.obtenerProductos(id)
+        const productos = await this.servicioProducto.obtenerProductos(id)
 
-    res.json(productos)
+        res.json(productos)
+    }
 
+    guardarProducto = async (req, res) => {
+        try {
+            const producto = req.body
 
-    
-}
+            const productoGuardado = await this.servicioProducto.guardarProducto(producto)
 
- guardarProducto = async(req,res) =>{
-    try {
+            res.json(productoGuardado)
+        } catch (error) {
+            res.json({ errMsg: error.message })
+        }
+    }
+
+    actualizarProducto = async (req, res) => {
+        const { id } = req.params
         const producto = req.body
 
-    const productoGuardado = await this.servicioProducto.guardarProducto(producto)
+        const productoActualizado = await this.servicioProducto.actualizarProducto(id, producto)
 
-    
-
-    res.json(productoGuardado)
-    } catch (error) {
-        res.json({errMsg: error.message})
+        res.json(productoActualizado)
     }
-    
-}
 
- actualizarProducto = async(req,res) =>{
-    const {id} = req.params
-    const producto = req.body
-    //producto.id = id
+    borrarProducto = async (req, res) => {
+        const { id } = req.params
 
-    const productoActualizado= await this.servicioProducto.actualizarProducto(id,producto)
+        const productoBorrado = await this.servicioProducto.borrarProducto(id)
 
-    res.json(productoActualizado)
-}
-
- borrarProducto = async (req,res) => {
-    const {id} = req.params
-
-    const productoBorrado = await this.servicioProducto.borrarProducto(id)
-
-    res.json(productoBorrado)
-}
+        res.json(productoBorrado)
+    }
 }
 
 export default Controlador

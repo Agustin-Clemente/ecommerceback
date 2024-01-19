@@ -3,24 +3,24 @@ import express from 'express'
 
 
 class Router {
-    constructor(){
+    constructor() {
         // RUTAS - ENDPOINTS
         this.router = express.Router()
         this.controladorProductos = new ControladorProductos()
     }
 
-start(){
+    start() {
 
-//CRUD
-    this.router.get("/:id?", this.controladorProductos.obtenerProductos )
+        //CRUD
+        this.router.get("/:id?", this.controladorProductos.obtenerProductos)
 
-    this.router.post("/", this.controladorProductos.guardarProducto)
+        this.router.post("/", this.controladorProductos.guardarProducto)
 
-    this.router.delete("/:id", this.controladorProductos.borrarProducto)
+        this.router.delete("/:id", this.controladorProductos.borrarProducto)
 
-    this.router.put("/:id", this.controladorProductos.actualizarProducto)
+        this.router.put("/:id", this.controladorProductos.actualizarProducto)
 
-    return this.router //para que lo use el endpoint en server.js
-}
+        return this.router //para que lo use el endpoint en server.js
+    }
 }
 export default Router

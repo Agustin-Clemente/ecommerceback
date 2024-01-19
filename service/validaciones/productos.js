@@ -1,6 +1,6 @@
 import Joi from "joi";
 
-const validar = producto =>{
+const validar = producto => {
     const productoSchema = Joi.object({
         nombre: Joi.string().required(),
         precio: Joi.number().required(),
@@ -16,7 +16,7 @@ const validar = producto =>{
 
     })
 
-    const {error} = productoSchema.validate(producto)
+    const { error } = productoSchema.validate(producto)
     return error
 }
 
